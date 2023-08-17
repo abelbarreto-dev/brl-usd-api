@@ -1,8 +1,8 @@
 from flask import Flask, Response
 
-FILE = "routes/routes.py"
+from models.models import Money
 
-app = Flask(FILE)
+app = Flask(__name__)
 
 
 @app.get("/usd-price-brl")
@@ -16,10 +16,10 @@ async def brl_price_usd() -> Response:
 
 
 @app.post("/usd-to-brl")
-async def usd_to_brl() -> Response:
+async def usd_to_brl(usd_json: Money) -> Response:
     pass
 
 
 @app.post("/brl-to-usd")
-async def brl_to_usd() -> Response:
+async def brl_to_usd(brl_json: Money) -> Response:
     pass
