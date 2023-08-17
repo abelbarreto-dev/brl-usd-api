@@ -1,14 +1,14 @@
 from flask import Response, abort
 
+from typing import Any
+
 
 def http_response(
-        message: str,
+        data: Any,
         status_code: int = 201,
 ) -> Response:
     return Response(
-        {
-            "message": message
-        },
+        response=data,
         status=status_code,
         content_type="Application/json"
     )
