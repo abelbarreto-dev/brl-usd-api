@@ -1,7 +1,5 @@
 from flask import Response, abort
 
-JSON = "Application/json"
-
 
 def http_response(
         message: str,
@@ -12,7 +10,7 @@ def http_response(
             "message": message
         },
         status=status_code,
-        content_type=JSON
+        content_type="Application/json"
     )
 
 
