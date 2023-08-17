@@ -1,3 +1,3 @@
 class MoneyException(ValueError):
-    def __init__(self, message: str = "ValueError") -> None:
-        super().__init__(message)
+    def __init__(self, value: str = "variable name") -> None:
+        super().__init__(f"error: the value '{value}' is not valid for money.")
