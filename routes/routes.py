@@ -2,12 +2,14 @@ from flask import Flask, Response
 
 from models.models import Money
 
+from controller.controller import Controller
+
 app = Flask(__name__)
 
 
 @app.get("/usd-price-brl")
 async def usd_price_brl() -> Response:
-    pass
+    return await Controller.usd_price_brl()
 
 
 @app.get("/brl-price-usd")
