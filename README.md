@@ -28,6 +28,7 @@ It is a list of known project dependencies, you can find all of them at
   "Requests",
   "Flusk",
   "BeautifulSoap4",
+  "Pytest",
 }
 ```
 
@@ -154,6 +155,13 @@ how to install it quickly.
     Requests
   </summary>
   <code>pip install requests</code>
+</details>
+
+<details>
+  <summary>
+    PyTest
+  </summary>
+  <code>pip install pytest</code>
 </details>
 
 ## Install Dependencies Quickly
