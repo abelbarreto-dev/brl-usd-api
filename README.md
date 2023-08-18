@@ -25,10 +25,18 @@ It is a list of known project dependencies, you can find all of them at
   "Pip",
   "Python Dotenv",
   "Pydantic",
+  "Requests",
   "Flusk",
   "BeautifulSoap4",
 }
 ```
+
+To install these dependencies, see:
+* [Install Dependencies](#install-dependencies)
+* [Install Dependencies Quickly](#install-dependencies-quickly)
+
+The 2nd point teach how to install it fast. You can make a choice,
+but you must to know, **it's required!**
 
 ## API Routes
 See each route and each HTTP method.
@@ -139,6 +147,13 @@ how to install it quickly.
     Pydantic
   </summary>
   <code>pip install pydantic</code>
+</details>
+
+<details>
+  <summary>
+    Requests
+  </summary>
+  <code>pip install requests</code>
 </details>
 
 ## Install Dependencies Quickly
