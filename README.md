@@ -22,6 +22,8 @@ It is a list of known project dependencies, you can find all of them at
 ```pythonset
 {
   "Python3.x",
+  "Pip",
+  "Python Dotenv",
   "Pydantic",
   "Flusk",
   "BeautifulSoap4",
@@ -82,29 +84,61 @@ how to install it quickly.
 
 <details>
   <summary>
+    Python
+  </summary>
+  <details>
+      <summary>
+        Windows
+      </summary>
+      <a href="https://www.python.org/downloads/windows/" target="_blank">Python Windows</a>
+  </details>
+  <details>
+      <summary>
+        MacOS
+      </summary>
+      <a href="https://www.python.org/downloads/macos/" target="_blank">Python MacOS</a>
+  </details>
+  <details>
+      <summary>
+        Linux
+      </summary>
+      Pre Installed.
+  </details>
+</details>
+
+<details>
+  <summary>
+    Install Pip
+  </summary>
+  <code>pip3 install pip --upgrade</code>
+</details>
+
+<details>
+  <summary>
+    Python DotEnv
+  </summary>
+  <code>pip install python-dotenv</code>
+</details>
+
+<details>
+  <summary>
     Flask
   </summary>
-  <code>
-    pip install Flask
-  </code>
+  <code>pip install Flask</code>
 </details>
 
 <details>
   <summary>
     BeautifulSoap 4
   </summary>
-  <code>
-    pip install beautifulsoup4
-  </code>
+  <code>pip install beautifulsoup4</code>
 </details>
 
 <details>
   <summary>
     Pydantic
   </summary>
-  <code>
-    pip install pydantic
-  </code>
+  <code>pip install pydantic</code>
 </details>
 
 ## Install Dependencies Quickly
