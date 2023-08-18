@@ -11,3 +11,11 @@ class Exchange:
         load_dotenv()
         self._usd_to_brl = getenv("USD_TO_BRL")
         self._brl_to_usd = getenv("BRL_TO_USD")
+
+    @property
+    def usd_to_brl(self) -> str:
+        return self._usd_to_brl
+
+    @property
+    def brl_to_usd(self) -> str:
+        return self._brl_to_usd
