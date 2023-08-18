@@ -61,6 +61,13 @@ Dollar to Real, you send US Dollars then receive Brazilian Reals;
 ```
 
 ## How to Run
+> **IMPORTANT:** before you run, please see [install dependencies](#install-dependencies)
+> or [install quickly](#install-dependencies-quickly), after
+> you can: RENAME or DUPLICATE [.env.example](.env.example) as `.env`. 
+
+Please  Don't edit this file, it has important *hyperlinks*, if you do it,
+this application will not work else you change the logic used here.
+
 Just run the file [main.py](main.py) and use a software to make requests for each route.
 You can find our routes at [API Routes](#api-routes).
 
