@@ -16,20 +16,19 @@ from enums.enums import SwapType
 
 from tests.conftest import client
 
+URL_USD_BRL = "/usd-to-brl"
+CONTENT_TYPE = getenv("CONTENT_TYPE")
+
 
 def test_usd_to_brl_success(client: FlaskClient) -> None:
-    url_link = "/usd-to-brl"
-
-    content_type = getenv("CONTENT_TYPE")
-
     usd_json = QuotationUsdBrl(
         value_usd=Decimal("5.00")
     )
 
     response = client.post(
-        url_link,
+        URL_USD_BRL,
         data=usd_json.model_dump_json(),
-        content_type=content_type,
+        content_type=CONTENT_TYPE,
     )
 
     assert response.status_code == 201
