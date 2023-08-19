@@ -1,4 +1,7 @@
-from flask import Response
+from flask import (
+    Response,
+    request,
+)
 
 from models.models import (
     Money,
@@ -24,7 +27,9 @@ async def brl_price_usd() -> Response:
 
 
 @app.post("/usd-to-brl")
-async def usd_to_brl(usd_json: QuotationUsdBrl) -> Response:
+async def usd_to_brl():
+    usd_json = QuotationUsdBrl.model_validate(request.json)
+
     return await Controller.usd_to_brl(usd_json)
 
 
