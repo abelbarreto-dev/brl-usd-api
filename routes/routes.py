@@ -4,7 +4,6 @@ from flask import (
 )
 
 from models.models import (
-    Money,
     QuotationBrlUsd,
     QuotationUsdBrl,
 )
