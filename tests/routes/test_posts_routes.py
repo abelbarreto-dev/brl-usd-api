@@ -39,3 +39,45 @@ def test_usd_to_brl_success(client: FlaskClient) -> None:
 
     assert money.value_usd == usd_json.value_usd
     assert money.swap_type == SwapType.USD_TO_BRL
+
+
+def test_usd_to_brl_failure_case_1(client: FlaskClient) -> None:
+    usd_json = QuotationUsdBrl(
+        value_usd=Decimal("5.5")
+    )
+
+    response = client.post(
+        URL_USD_BRL,
+        data=usd_json.model_dump_json(),
+        content_type=CONTENT_TYPE,
+    )
+
+    assert response.status_code == 400
+
+
+def test_usd_to_brl_failure_case_2(client: FlaskClient) -> None:
+    usd_json = QuotationUsdBrl(
+        value_usd=Decimal("15.512")
+    )
+
+    response = client.post(
+        URL_USD_BRL,
+        data=usd_json.model_dump_json(),
+        content_type=CONTENT_TYPE,
+    )
+
+    assert response.status_code == 400
+
+
+def test_usd_to_brl_failure_case_3(client: FlaskClient) -> None:
+    usd_json = QuotationUsdBrl(
+        value_usd=Decimal("-5.54")
+    )
+
+    response = client.post(
+        URL_USD_BRL,
+        data=usd_json.model_dump_json(),
+        content_type=CONTENT_TYPE,
+    )
+
+    assert response.status_code == 400
