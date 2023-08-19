@@ -30,12 +30,24 @@ class Controller:
 
         return http_response(
             data=money.model_dump_json(),
-            status_code=201
+            status_code=201,
         )
 
     @classmethod
     async def brl_price_usd(cls) -> Response:
-        pass
+        money = Money()
+
+        real_in_usd = cls.exchange.investing_brl_to_usd()
+
+        money.value_brl = Decimal("1.00")
+        money.value_usd = real_in_usd
+        money.quotation = real_in_usd
+        money.swap_type = SwapType.BRL_TO_USD.value
+
+        return http_response(
+            data=money.model_dump_json(),
+            status_code=201,
+        )
 
     @classmethod
     async def usd_to_brl(cls, usd_json: Money) -> Response:
