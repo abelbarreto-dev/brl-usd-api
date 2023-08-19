@@ -1,6 +1,10 @@
 from flask import Response
 
-from models.models import Money
+from models.models import (
+    Money,
+    QuotationBrlUsd,
+    QuotationUsdBrl,
+)
 
 from flask_app.flask_app import create_app
 
@@ -20,10 +24,10 @@ async def brl_price_usd() -> Response:
 
 
 @app.post("/usd-to-brl")
-async def usd_to_brl(usd_json: Money) -> Response:
+async def usd_to_brl(usd_json: QuotationUsdBrl) -> Response:
     return await Controller.usd_to_brl(usd_json)
 
 
 @app.post("/brl-to-usd")
-async def brl_to_usd(brl_json: Money) -> Response:
+async def brl_to_usd(brl_json: QuotationBrlUsd) -> Response:
     pass

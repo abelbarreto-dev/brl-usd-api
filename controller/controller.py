@@ -1,12 +1,18 @@
 from decimal import Decimal
 
-from models.models import Money
+from models.models import (
+    Money,
+    QuotationBrlUsd,
+    QuotationUsdBrl,
+)
 
 from flask import Response
 
 from exchange.exchange import Exchange
 
 from enums.enums import SwapType
+
+from validator.validator import money_checker
 
 from responses.responses import (
     http_exception,
@@ -50,9 +56,9 @@ class Controller:
         )
 
     @classmethod
-    async def usd_to_brl(cls, usd_json: Money) -> Response:
+    async def usd_to_brl(cls, usd_json: QuotationUsdBrl) -> Response:
         pass
 
     @classmethod
-    async def brl_to_usd(cls, brl_json: Money) -> Response:
+    async def brl_to_usd(cls, brl_json: QuotationBrlUsd) -> Response:
         pass
