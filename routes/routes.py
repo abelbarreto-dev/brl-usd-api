@@ -21,7 +21,7 @@ async def brl_price_usd() -> Response:
 
 @app.post("/usd-to-brl")
 async def usd_to_brl(usd_json: Money) -> Response:
-    pass
+    return await Controller.usd_to_brl(usd_json)
 
 
 @app.post("/brl-to-usd")
