@@ -57,7 +57,10 @@ class Controller:
 
     @classmethod
     async def usd_to_brl(cls, usd_json: QuotationUsdBrl) -> Response:
-        pass
+        try:
+            money_checker(usd_json.value_usd)
+        except ValueError as ve:
+            http_exception(ve.args[0])
 
     @classmethod
     async def brl_to_usd(cls, brl_json: QuotationBrlUsd) -> Response:
