@@ -1,5 +1,7 @@
 from functools import wraps
 
+from werkzeug.exceptions import HTTPException
+
 from os import getenv
 
 from flask import (
@@ -16,15 +18,15 @@ def json_error_handler(func):
     content_type = getenv("CONTENT_TYPE")
 
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    async def wrapper(*args, **kwargs):
         try:
-            return func(*args, **kwargs)
-        except ValueError as ve:
+            return await func(*args, **kwargs)
+        except HTTPException as ve:
             error_message = {
-                "message": ve.args[0]
+                "message": ve.description
             }
 
-            response = make_response(jsonify(error_message), 400)
+            response = make_response(jsonify(error_message), ve.code)
             response.headers["Content-Type"] = content_type
             return response
 
