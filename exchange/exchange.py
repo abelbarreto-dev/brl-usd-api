@@ -23,3 +23,17 @@ class Exchange(Investing):
         money.swap_type = SwapType.USD_TO_BRL.value
 
         return money
+
+    async def swap_brl_to_usd(self, brl_json: QuotationBrlUsd) -> Money:
+        usd_quot = self.investing_brl_to_usd()
+
+        dollars = usd_quot * brl_json.value_brl
+
+        money = Money()
+
+        money.value_brl = brl_json.value_brl
+        money.value_usd = dollars
+        money.quotation = usd_quot
+        money.swap_type = SwapType.BRL_TO_USD.value
+
+        return money
