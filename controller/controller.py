@@ -1,12 +1,18 @@
 from decimal import Decimal
 
-from models.models import Money
+from models.models import (
+    Money,
+    QuotationBrlUsd,
+    QuotationUsdBrl,
+)
 
 from flask import Response
 
 from exchange.exchange import Exchange
 
 from enums.enums import SwapType
+
+from validator.validator import money_checker
 
 from responses.responses import (
     http_exception,
@@ -28,10 +34,7 @@ class Controller:
         money.quotation = dollar_in_brl
         money.swap_type = SwapType.USD_TO_BRL.value
 
-        return http_response(
-            data=money.model_dump_json(),
-            status_code=201,
-        )
+        return http_response(money.model_dump_json())
 
     @classmethod
     async def brl_price_usd(cls) -> Response:
@@ -44,15 +47,19 @@ class Controller:
         money.quotation = real_in_usd
         money.swap_type = SwapType.BRL_TO_USD.value
 
-        return http_response(
-            data=money.model_dump_json(),
-            status_code=201,
-        )
+        return http_response(money.model_dump_json())
 
     @classmethod
-    async def usd_to_brl(cls, usd_json: Money) -> Response:
-        pass
+    async def usd_to_brl(cls, usd_json: QuotationUsdBrl) -> Response:
+        try:
+            money_checker(usd_json.value_usd)
+        except ValueError as ve:
+            http_exception(ve.args[0])
+
+        money = await cls.exchange.swap_usd_to_brl(usd_json)
+
+        return http_response(money.model_dump_json())
 
     @classmethod
-    async def brl_to_usd(cls, brl_json: Money) -> Response:
+    async def brl_to_usd(cls, brl_json: QuotationBrlUsd) -> Response:
         pass

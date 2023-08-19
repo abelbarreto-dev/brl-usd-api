@@ -15,12 +15,8 @@ class Money(BaseModel):
 
 
 class QuotationUsdBrl(BaseModel):
-    value_in_brl: Decimal
-    usd_price: Decimal
-    value_usd: Decimal = Decimal("1.00")
+    value_usd: Decimal
 
 
 class QuotationBrlUsd(BaseModel):
-    value_in_usd: Decimal
-    brl_price: Decimal
-    value_brl: Decimal = Decimal("1.00")
+    value_brl: Decimal
