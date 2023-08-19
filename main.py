@@ -1,5 +1,9 @@
 from routes.routes import app
 
 
-if __name__ == '__main__':
+def runner() -> None:
     app.run("localhost", 8000, True)
+
+
+if __name__ == '__main__':
+    runner()

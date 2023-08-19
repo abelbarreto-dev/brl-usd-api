@@ -26,7 +26,8 @@ It is a list of known project dependencies, you can find all of them at
   "Python Dotenv",
   "Pydantic",
   "Requests",
-  "Flusk",
+  "Flask",
+  "Flask Assync",
   "BeautifulSoap4",
   "Pytest",
 }
@@ -162,6 +163,13 @@ how to install it quickly.
     PyTest
   </summary>
   <code>pip install pytest</code>
+</details>
+
+<details>
+  <summary>
+    Flask Assync
+  </summary>
+  <code>pip install asgiref</code>
 </details>
 
 ## Install Dependencies Quickly

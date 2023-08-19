@@ -1,12 +1,37 @@
+from decimal import Decimal
+
 from models.models import Money
 
 from flask import Response
 
+from exchange.exchange import Exchange
+
+from enums.enums import SwapType
+
+from responses.responses import (
+    http_exception,
+    http_response,
+)
+
 
 class Controller:
+    exchange: Exchange = Exchange()
+
     @classmethod
     async def usd_price_brl(cls) -> Response:
-        pass
+        money = Money()
+
+        dollar_in_brl = cls.exchange.investing_usd_to_brl()
+
+        money.value_usd = Decimal("1.00")
+        money.value_brl = dollar_in_brl
+        money.quotation = dollar_in_brl
+        money.swap_type = SwapType.USD_TO_BRL.value
+
+        return http_response(
+            data=money.model_dump_json(),
+            status_code=201
+        )
 
     @classmethod
     async def brl_price_usd(cls) -> Response:
